@@ -1,10 +1,7 @@
 const db = require('../models/dbConnection.js');
 
 const getContacts = async (req, res) => {
-    console.log("The user is " + req.user);    
-    console.log('Fetching contacts from the database...');
     const contacts = await db.query('SELECT * FROM contacts');
-    console.log(contacts.rows);
     res.send(contacts.rows);
 };
 
