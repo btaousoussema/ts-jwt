@@ -1,11 +1,13 @@
-const whitelist = [
+const whitelist: string[] = [
     'http://localhost:3000', 
     'http://localhost:5173', 
     'http://localhost:5174'
 ];
 
+type StaticOrigin = boolean | string | RegExp | Array<boolean | string | RegExp>;
+
 const corsOptions = {
-    origin: function (origin, callback) {
+    origin: function (origin : string | undefined = "", callback: (err: Error | null, origin?: StaticOrigin) => void) : void {
         if (whitelist.indexOf(origin) !== -1 || !origin) {
             callback(null, true);
         } else {
@@ -14,4 +16,4 @@ const corsOptions = {
     }
 };
 
-module.exports = corsOptions;
+export default corsOptions;
