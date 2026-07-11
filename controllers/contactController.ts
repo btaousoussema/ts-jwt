@@ -8,7 +8,7 @@ const getContacts = async (req: Request, res: Response) : Promise<void> => {
         res.status(200).json({'message': 'No contacts found'});
         return;
     }
-
+    
     const contacts: Contact[] = [];
     for (const row of result.rows) {
         let contact: Contact = {

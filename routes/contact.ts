@@ -1,8 +1,8 @@
-import express from 'express';
+import express, { type Router } from 'express';
 import contactController from '../controllers/contactController.ts';
 import { jwtAuthentication } from '../middleware/JWTauthentication.ts';
 
-const contactRouter = express.Router();
+const contactRouter: Router = express.Router();
 
 contactRouter.get('/', jwtAuthentication, contactController.getContacts);
 

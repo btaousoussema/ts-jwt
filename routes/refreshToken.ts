@@ -1,7 +1,7 @@
-import express from 'express';
+import express, { type Router } from 'express';
 import { refreshToken } from '../controllers/refreshTokenController.ts';
 
-const refresTokenRouter = express.Router();
+const refresTokenRouter: Router = express.Router();
 
 refresTokenRouter.post('/', refreshToken);
 

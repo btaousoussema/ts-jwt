@@ -1,13 +1,13 @@
-import express from 'express';
+import express, { type Express } from 'express';
 const userRouter = express.Router();
-import {getUser, getUserById, createUser, loginUser } from '../controllers/userController.ts';
+import {getAllUsers, getUserById, createUser, loginUser } from '../controllers/userController.ts';
 
 
-const app = express();
+const app: Express = express();
 
 app.use(express.json());
 
-userRouter.get('/', getUser);
+userRouter.get('/', getAllUsers);
 
 userRouter.get('/:id', getUserById);
 

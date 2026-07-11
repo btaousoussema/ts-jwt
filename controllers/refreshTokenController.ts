@@ -1,18 +1,19 @@
-import { verifyRefreshToken } from '../services/refreshTokenService.ts';
+import 'dotenv/config';
 import jwt from 'jsonwebtoken';
 import { type Request, type Response, type CookieOptions} from 'express';
-import 'dotenv/config';
+import type { RefreshToken } from '../types/types.ts'; 
+import { verifyRefreshToken } from '../services/refreshTokenService.ts';
 
 export const refreshToken = async (req: Request, res: Response): Promise<void> => {
-    const refreshTokenFromCookies = req.cookies.refreshToken;
+    const refreshTokenFromCookies: string | undefined = req.cookies.refreshToken;
 
-    if (!refreshTokenFromCookies) {
+    if (!refreshTokenFromCookies || refreshTokenFromCookies === undefined) {
         res.status(401).json({ message: 'No refresh token provided' });
         return
     }
 
-    const refreshToken = await verifyRefreshToken(refreshTokenFromCookies);
-    if (!refreshToken) {
+    const refreshToken: RefreshToken | null = await verifyRefreshToken(refreshTokenFromCookies);
+    if (!refreshToken || refreshToken === null) {
         res.clearCookie('refreshToken');
         res.status(403).json({ message: 'Invalid refresh token' });
         return

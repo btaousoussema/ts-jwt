@@ -1,7 +1,7 @@
-import express from 'express';
+import express, { type Router } from 'express';
 import { login } from '../controllers/authController.ts';
 
-const authRouter = express.Router();
+const authRouter: Router = express.Router();
 
 authRouter.post('/', login);
 
