@@ -1,4 +1,4 @@
-import { invalidateTokenForUser } from '../models/refreshTokenModel.ts';
+import { invalidateTokenForUser } from '../repo/refreshTokenModel.ts';
 import { getUserByEmail} from './userController.ts';
 
 import { type Request, type Response } from 'express';

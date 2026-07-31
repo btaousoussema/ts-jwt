@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { query } from '../models/dbConnection.ts';
+import { query } from '../repo/dbConnection.ts';
 import {type Request, type Response} from 'express';
 import  { type User } from '../types/types.ts'
 

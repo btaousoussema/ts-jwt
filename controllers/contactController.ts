@@ -1,4 +1,4 @@
-import { query } from '../models/dbConnection.ts';
+import { query } from '../repo/dbConnection.ts';
 import { type Request, type Response } from 'express';
 import type { Contact } from '../types/types.ts';
 

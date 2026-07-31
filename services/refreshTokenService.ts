@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 import type { User, RefreshToken } from '../types/types.ts';
-import {invalidateTokenForUser, insertRefreshToken, getRefreshToken} from '../models/refreshTokenModel.ts';
+import {invalidateTokenForUser, insertRefreshToken, getRefreshToken} from '../repo/refreshTokenModel.ts';
 
 export const generateRefreshToken = async (user: User) : Promise<RefreshToken | null> => {
     return await generateRefreshTokenFromId(Number(user.id));
