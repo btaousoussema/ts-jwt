@@ -65,7 +65,7 @@ export const createUser = async (req: Request, res:Response): Promise<void> => {
     const hashedPassword: string = await bcrypt.hash(password, 10);
     const result = await query('INSERT INTO users (email, password) SELECT $1, $2 WHERE NOT EXISTS (SELECT 1 FROM users WHERE email = $1) RETURNING email', [email, hashedPassword]);
     if(result.rows.length === 0) {
-        res.status(500).send('Cannot create user with email : ' + email);
+        res.status(409).send('Cannot create user with email : ' + email);
         return;
     }
 

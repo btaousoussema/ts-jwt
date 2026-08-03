@@ -1,11 +1,11 @@
 import express from 'express';
 import cors from 'cors';
-import userRouter from './routes/user.ts';
-import contactRoutes from './routes/contact.ts';
-import corsOptions from "./config/corsOptions.ts";
-import authRoutes from './routes/auth.ts';
-import refreshTokenRoutes from './routes/refreshToken.ts';
-import logoutRoutes from './routes/logout.ts';
+import userRouter from './src/routes/user.ts';
+import contactRoutes from './src/routes/contact.ts';
+import corsOptions from "./src/config/corsOptions.ts";
+import authRoutes from './src/routes/auth.ts';
+import refreshTokenRoutes from './src/routes/refreshToken.ts';
+import logoutRoutes from './src/routes/logout.ts';
 
 const app = express();
 
